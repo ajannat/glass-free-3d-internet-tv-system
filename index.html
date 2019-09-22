@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="assets/logo.png">
+    <title>3D Internet TV</title>
+    <link rel="stylesheet" type="text/css" href="assets/main_style.css">
+  </head>
+
+  <body>
+      <!--navbar-->
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#"><img src="assets/logo.png" alt="logo"></a>
+          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> -->
+
+          <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link slash" href="#">/<span class="sr-only"></span></a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="#">Project Details <span class="sr-only"></span></a>
+              </li>
+            </ul>
+            
+          </div> -->
+
+          <!-- navmenu end -->
+        </div>
+      </nav>
+      <!--navbar-->
+
+
+      <!-- Body Content -->
+      <!-- <marquee>Welcome to the world of glass free 3D TV.</marquee> -->
+      <div class="content pt-3 text-center" style="background-color: aliceblue">
+        <div class="container">
+          <h1>Welcome to the world of glass free 3D TV</h1>
+          <div class="row pt-3 text-center">
+
+            <div class="col-md-6 video-list mb-3">
+              <div class="video">
+                <video onclick="video_play_popup(this);">
+                  <source id="getVideo" src="assets/output_dance.mp4" type="video/mp4">
+                  <source src="assets/output_dance.ogg" type="video/ogg">
+                </video>
+                <h4>Dance Playing</h4>
+              </div>
+            </div>
+
+            <div class="col-md-6 video-list mb-3">
+              <div class="video">
+                <video onclick="video_play_popup(this);">
+                  <source id="getVideo" src="assets/output_song.mp4" type="video/mp4">
+                  <source src="assets/output_song.ogg" type="video/ogg">
+                </video>
+                <h4>Song Playing</h4>
+              </div>
+            </div>
+
+            <div class="col-md-6 video-list mb-3">
+              <div class="video">
+                <video onclick="video_play_popup(this);">
+                  <source id="getVideo" src="assets/output_news.mp4" type="video/mp4">
+                  <source src="assets/output_news.ogg" type="video/ogg">
+                </video>
+                <h4>News Presentation</h4>
+              </div>
+            </div>
+
+            <div class="col-md-6 video-list mb-3">
+              <div class="video">
+                <video onclick="video_play_popup(this);">
+                  <source id="getVideo" src="assets/output_sample.mp4" type="video/mp4">
+                  <source src="assets/output_sample.ogg" type="video/ogg">
+                </video>
+                <h4>Sample Video</h4>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Video play popup -->
+      <div id="myModal" class="modal text-center">
+
+      <!-- Modal content -->
+        <div class="modal-content">
+          <div class="video">
+                <video id = "playVideo" controls><!-- 
+                  <source id="playVideo" src="" type="video/mp4">
+                  <source src="output_dance.ogg" type="video/ogg"> -->
+                </video>
+              </div>
+          <p>Click on the video to play or stop.</p>
+          <span onclick="closePopup();" class="close">Close</span>
+          <!-- <p>Some text in the Modal..</p> -->
+        </div>
+
+       </div>
+
+      
+
+      <!--footer-->
+      <footer class="pt-3 ">
+        <div class="container">
+          <div class="row">
+            <div class="col-4">
+              <!-- <p>a trip to remember</p> -->
+            </div>
+            <div class="col-8 text-right">
+              <p>all rights reserved by @Amit & the group</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!--footer-->
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+
+    <script> 
+      
+      function video_play_popup(e){
+        
+        document.getElementById('myModal').style.display="block";
+        // var src = document.getElementById("getVideo").src;
+        var src = $(e).find('source').attr('src');
+        // alert(src);
+
+        var video = document.getElementById('playVideo');
+        var source = document.createElement('source');
+        source.setAttribute('src', src);
+        video.appendChild(source);
+        video.load();
+      }
+
+      function closePopup(){
+        var video = document.getElementById('playVideo');
+        video.pause();
+        document.getElementById('myModal').style.display="none";
+        window.location.reload();
+      }
+ 
+    </script> 
+
+
+
+  </body>
+</html>
