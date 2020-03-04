@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="../assets/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="../assets/images/logo.png">
+    <title>Dance</title>
+    <link rel="stylesheet" type="text/css" href="../assets/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/particle.min.css">
+  </head>
+
+  <body>
+
+ 	<div>
+    	<div class="video-play-section">
+    		<div class="row">
+    			<div class="col-4 offset-1 pt-5">
+    				<div class="row">
+    					<div class="col-md-12 dance-text">
+    						<img src="../assets/images/cvis.png">
+    					</div>
+    					<div class="col-12 pt-5">
+    						<select id="selectOptions" class="form-control">
+								<option value="01">Please select a video to play</option>
+								<option value="02">Couple Dance</option>
+								<option value="03">Jazz Dance</option>
+								<option value="04">Ballroom Dance</option>
+								<option value="05">Hip-hop Dance</option>
+								<option value="06">Tap Dance</option>
+								<option value="07">Contemporary Dance</option>
+							</select>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-6 pt-5 pl-5">
+    				<div class="showVideo no-display">
+    					<iframe src="https://drive.google.com/file/d/19jpBp6QT2dcaxdOIQ8wMeEjoMAj9cApH/preview"></iframe>
+    				</div>
+    				
+    				<img class="pl-5 notFoundImg" src="../assets/images/notfound.jpg">
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+
+	<div id="particles-js"></div> 
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
+
+    <script> particlesJS("particles-js", {"particles":{"number":{"value":125,"density":{"enable":true,"value_area":900}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});var count_particles, stats, update; stats = new Stats; stats.setMode(0); stats.domElement.style.position = 'absolute'; stats.domElement.style.left = '0px'; stats.domElement.style.top = '0px'; document.body.appendChild(stats.domElement); count_particles = document.querySelector('.js-count-particles'); update = function() { stats.begin(); stats.end(); if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) { count_particles.innerText = window.pJSDom[0].pJS.particles.array.length; } requestAnimationFrame(update); }; requestAnimationFrame(update);;
+      
+      	$("#selectOptions").on("change",function(){
+		  	var val = $(this).find('option:selected').val();
+		  	if(val === '02'){
+		  		$(".showVideo").removeClass("no-display");
+		  		$(".notFoundImg").addClass("no-display");
+		  	}
+		  	else{
+		  		$(".notFoundImg").removeClass("no-display");
+		  		$(".showVideo").addClass("no-display");
+		  	}
+		});
+ 
+    </script> 
+    
+  </body>
+</html>
